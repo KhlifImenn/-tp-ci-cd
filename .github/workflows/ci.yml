@@ -42,7 +42,7 @@ jobs:
 
       - name: Installer Snyk
         run: |
-            curl -sL https://snyk.io/install | bash
+            npm install -g snyk
   
         
       - name: Authentifier Snyk

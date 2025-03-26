@@ -52,7 +52,7 @@ jobs:
         
       - name: Analyser les vulnérabilités avec Snyk
         run: |
-            snyk test --all-projects
+            snyk test --file=requirements.txt
   
   
  

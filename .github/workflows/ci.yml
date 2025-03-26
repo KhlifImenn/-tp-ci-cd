@@ -29,7 +29,7 @@ jobs:
       - name: Récupérer le code
         uses: actions/checkout@v3
 
-      # Étape pour installer SonarScanner
+      
       - name: Installer SonarScanner
         - name: Installer SonarScanner
         run: |
@@ -37,7 +37,7 @@ jobs:
           unzip sonar-scanner.zip
           echo "$PWD/sonar-scanner-5.0.1.3006-linux/bin" >> $GITHUB_PATH
 
-      # Analyse du code avec SonarQube
+     
       - name: Analyse du code avec SonarQube
         run: |
           sonar-scanner \

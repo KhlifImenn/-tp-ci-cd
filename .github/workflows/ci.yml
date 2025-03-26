@@ -1,23 +1,24 @@
 name: CI/CD Pipeline
 
 on: [push]
+
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - name: Récupérer le code
         uses: actions/checkout@v3
- 
+
       - name: Installer Python
         uses: actions/setup-python@v4
         with:
           python-version: 3.x
- 
+
       - name: Installer les dépendances
-        run: pip install pytest
- 
+        run: pip install -r requirements.txt
+
       - name: Exécuter les tests
-        run: python -m unittest test.py
+        run: python -m unittest test_app.py
      
  
   security:

@@ -39,7 +39,22 @@ jobs:
           -Dsonar.sources=. \
           -Dsonar.host.url=https://sonarcloud.io \
           -Dsonar.token=${{secrets.SONAR_TOKEN}}
- 
+
+      - name: Installer Snyk
+          run: |
+            curl -sL https://snyk.io/install | bash
+  
+        
+      - name: Authentifier Snyk
+          run: |
+            snyk auth ${{secrets.SNYK_TOKEN}}
+  
+        
+      - name: Analyser les vulnérabilités avec Snyk
+          run: |
+            snyk test --all-projects
+  
+  
  
   deploy:
     needs: security

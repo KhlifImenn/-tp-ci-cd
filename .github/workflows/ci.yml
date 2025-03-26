@@ -52,6 +52,7 @@ jobs:
         
       - name: Analyser les vulnérabilités avec Snyk
         run: |
+            cd -tp-ci-cd
             snyk test --file=requirements.txt
   
   

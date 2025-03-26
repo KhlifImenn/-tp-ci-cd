@@ -44,8 +44,8 @@ jobs:
             -Dsonar.projectKey=KhlifImenn_-tp-ci-cd \
             -Dsonar.sources=. \
             -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.login=$SONAR_TOKEN
-            -Dsonar.analysis.mode=manual
+            -Dsonar.login=${{secrets.SONAR_TOKEN}}
+            
 
   deploy: 
             needs: sonarcloud 

@@ -40,21 +40,11 @@ jobs:
           -Dsonar.host.url=https://sonarcloud.io \
           -Dsonar.token=${{secrets.SONAR_TOKEN}}
 
-      - name: Installer Snyk
-        run: |
-            npm install -g snyk
-  
-        
-      - name: Authentifier Snyk
-        run: |
-            snyk auth ${{secrets.SNYK_TOKEN}}
-  
-        
-      - name: Analyser les vulnérabilités avec Snyk
-        run: |
-            cd -tp-ci-cd
-            snyk test --file=requirements.txt
-  
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/python@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
   
  
   deploy:

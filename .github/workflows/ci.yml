@@ -41,17 +41,17 @@ jobs:
           -Dsonar.token=${{secrets.SONAR_TOKEN}}
 
       - name: Installer Snyk
-          run: |
+        run: |
             curl -sL https://snyk.io/install | bash
   
         
       - name: Authentifier Snyk
-          run: |
+        run: |
             snyk auth ${{secrets.SNYK_TOKEN}}
   
         
       - name: Analyser les vulnérabilités avec Snyk
-          run: |
+        run: |
             snyk test --all-projects
   
   
